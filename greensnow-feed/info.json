@@ -58,7 +58,7 @@
       "annotation": "get_indicators",
       "enabled": true,
       "parameters": [],
-      "output_schema": {}
+      "output_schema": []
     }
   ]
 }
