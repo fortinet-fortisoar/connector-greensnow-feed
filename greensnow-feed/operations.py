@@ -16,7 +16,7 @@ class GreenSnowFeed(object):
         self.url = config.get('server_url').strip('/')
         self.verify_ssl = config.get('verify_ssl')
 
-    def make_rest_call(self, url, method, data=None, params=None):
+    def make_rest_call(self, method='GET', data=None, params=None):
         try:
             url = self.url
             response = requests.request(method, url, data=data, params=params, verify=self.verify_ssl,
@@ -42,8 +42,7 @@ class GreenSnowFeed(object):
 def get_indicators(config, params):
     try:
         gs = GreenSnowFeed(config)
-        endpoint = ''
-        response = gs.make_rest_call(endpoint, 'GET')
+        response = gs.make_rest_call()
         if response:
             response = response.split("\n")[:-1]
         return response
